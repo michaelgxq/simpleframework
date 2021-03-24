@@ -58,6 +58,7 @@ public class AnnotationParser {
 
 
     public static void main(String[] args) throws ClassNotFoundException {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
         //parseTypeAnnotation();
         parseFieldAnnotation();
         //parseMethodAnnotation();

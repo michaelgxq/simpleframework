@@ -8,6 +8,7 @@ public class EnumStarvingSingleton {
     public static EnumStarvingSingleton getInstance(){
         return ContainerHolder.HOLDER.instance;
     }
+
     private enum ContainerHolder{
         HOLDER;
         private EnumStarvingSingleton instance;
