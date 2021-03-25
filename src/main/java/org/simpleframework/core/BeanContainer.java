@@ -24,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BeanContainer {
     /**
      * 定义 Map 集合用于存放所有被配置标记的目标对象（如被 @Controller，@Component 等注解标记的类的对象）
+     *（该集合使用了线程安全的 ConcurrentHashMap）
      */
     private final Map<Class<?>, Object> beanMap = new ConcurrentHashMap();
 
@@ -75,9 +76,10 @@ public class BeanContainer {
     }
 
     /**
-     * 该方法用于根据包名，获取该包下所有使用了我们定义的那些注解的类的实例，然后把这些实例放入到上面创建的 Map 集合 beanMap 中
+     * 该方法用于根据包名，获取该包下所有使用了我们定义的那些注解的类的实例，然后把这些实例放入到上面创建的 Bean 容器 ---- beanMap 集合中
+     * 以便用户后续获取这些实例
      *（该方法为同步方法）
-     * @param packageName 包名
+     * @param packageName 该形参用于接收包名
      */
     public synchronized void loadBeans(String packageName) {
         // 判断 bean 容器（即上面创建的 Map 集合 beanMap ）是否被加载过（其实就是是否以及往成员变量 beanMap 中存放过元素了）

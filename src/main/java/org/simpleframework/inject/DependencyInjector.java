@@ -87,8 +87,11 @@ public class DependencyInjector {
 
 
     }
+
     /**
      * 根据 Class 类对象从 Bean 容器里获取其对应的实例或实现类（即如果该 Class 类对象对应的是一个接口，就获取它的实现类）
+     * @param fieldClass 该形参用于接收类中对应成员变量的 Class 类对象
+     * @param autowiredValue 该形参用于接收加载该成员变量上的 Autowired 注解的属性值
      */
     private Object getFieldInstance(Class<?> fieldClass, String autowiredValue) {
 
@@ -115,6 +118,8 @@ public class DependencyInjector {
     }
     /**
      * 根据 Autowired 注解的属性值，获取 Class 类对象所对应接口的实现子类
+     * @param fieldClass 该形参用于接收类中对应成员变量的 Class 类对象
+     * @param autowiredValue 该形参用于接收加载该成员变量上的 Autowired 注解的属性值
      */
     private Class<?> getImplementedClass(Class<?> fieldClass, String autowiredValue) {
         // 调用我们定义的 getClassesBySuper() 方法获取指定 接口所对应的实现子类 或者 父类所对应的子类 的 Class 类对象集合（不包括该类和接口本身）
@@ -138,7 +143,9 @@ public class DependencyInjector {
             else {
                 // 遍历该 Set 集合，判断 Autowired 注解的属性值是否就是该 Class 类对象对应类的类名，是就返回该 Class 类对象
                 for(Class<?> clazz : classSet){
-
+                    // 因为我们为 Autowired 注解设置属性值的时候，设置的仅仅是类的简单类名（如 @Autowired("Person")）
+                    // 因此
+                    // 这里比较的时候也是通过调用 Class 类的 getSimpleName() 方法获取该 Class 类对象对应的类的简单类名
                     if(autowiredValue.equals(clazz.getSimpleName())){
                         return clazz;
                     }
