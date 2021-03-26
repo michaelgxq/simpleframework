@@ -53,7 +53,8 @@ public class BeanContainer {
     }
 
     /**
-     * bean 容器（即上面创建的 Map 集合 beanMap ）是否被加载过
+     * 定义成员变量 loaded 用于判断 bean 容器（即上面创建的 Map 集合 beanMap ）是否被加载过
+     *（其实就是判断下面的 loadBeans() 方法有没有执行过）
      */
     private boolean loaded = false;
 
