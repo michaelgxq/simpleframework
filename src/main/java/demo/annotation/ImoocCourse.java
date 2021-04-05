@@ -15,6 +15,5 @@ public class ImoocCourse {
                     + "全面的了解",
             courseIndex = 144)
     public void getCourseInfo() {
-
     }
 }
