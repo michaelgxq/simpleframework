@@ -19,18 +19,40 @@ public class ProxyDemo {
 //        InvocationHandler handler = new AlipayInvocationHandler(toCPayment);
 //        ToCPayment toCProxy = JdkDynamicProxyUtil.newProxyInstance(toCPayment,handler);
 //        toCProxy.pay();
+
+
+        // 创建 ToBPaymentImpl 这个被代理类对象
 //        ToBPayment toBPayment = new ToBPaymentImpl();
+//
+//        // 创建 AlipayInvocationHandler 类对象
 //        InvocationHandler handlerToB = new AlipayInvocationHandler(toBPayment);
+//
+//        // 获取代理类对象
 //        ToBPayment toBProxy = JdkDynamicProxyUtil.newProxyInstance(toBPayment, handlerToB);
+//
+//        // 调用代理类对象的 pay() 方法
 //        toBProxy.pay();
-        CommonPayment commonPayment = new CommonPayment();
-//        AlipayInvocationHandler invocationHandler = new AlipayInvocationHandler(commonPayment);
-//        CommonPayment commonPaymentProxy = JdkDynamicProxyUtil.newProxyInstance(commonPayment, invocationHandler);
+
+
+        // 创建 CommonPayment 这个被代理类的对象
+//        CommonPayment commonPayment = new CommonPayment();
+////        AlipayInvocationHandler invocationHandler = new AlipayInvocationHandler(commonPayment);
+////        CommonPayment commonPaymentProxy = JdkDynamicProxyUtil.newProxyInstance(commonPayment, invocationHandler);
+//
+//        // 创建 MethodInterceptor 接口的实现子类 AlipayMethodInterceptor 类的对象
         MethodInterceptor methodInterceptor = new AlipayMethodInterceptor();
-        CommonPayment commonPaymentProxy = CglibUtil.createProxy(commonPayment, methodInterceptor);
-        commonPaymentProxy.pay();
-        ToCPayment toCPayment = new ToCPaymentImpl();
-        ToCPayment toCProxy = CglibUtil.createProxy(toCPayment, methodInterceptor);
+//
+//        // 获取代理类对象
+//        CommonPayment commonPaymentProxy = CglibUtil.createProxy(commonPayment, methodInterceptor);
+//
+//        // 调用代理类对象的 pay() 方法
+//        commonPaymentProxy.pay();
+//
+        // 调用代理类对象的 payOne() 方法
+//        commonPaymentProxy.payOne();
+
+        ToCPaymentImpl toCPayment = new ToCPaymentImpl();
+        ToCPaymentImpl toCProxy = CglibUtil.createProxy(toCPayment, methodInterceptor);
         toCProxy.pay();
     }
 }

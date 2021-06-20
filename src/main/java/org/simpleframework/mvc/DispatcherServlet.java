@@ -11,7 +11,12 @@ import org.simpleframework.mvc.processor.impl.JspRequestProcessor;
 import org.simpleframework.mvc.processor.impl.PreRequestProcessor;
 import org.simpleframework.mvc.processor.impl.StaticResourceRequestProcessor;
 
+import javax.servlet.GenericServlet;
+import javax.servlet.Servlet;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
