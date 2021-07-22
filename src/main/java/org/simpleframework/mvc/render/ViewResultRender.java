@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * 页面渲染器
+ * 该类用于页面渲染（即对客户端想要获取的页面（即 HTML 文档）进行包装）
+ *（由于我们现在基本不会用后端去返回一个页面什么的，所以该类就没完善注释）
  */
 public class ViewResultRender implements ResultRender{
     public static final String VIEW_PATH = "/templates/";

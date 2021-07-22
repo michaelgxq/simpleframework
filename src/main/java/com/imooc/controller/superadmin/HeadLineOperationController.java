@@ -35,18 +35,22 @@ public class HeadLineOperationController {
         modelAndView.setView("addheadline.jsp").addViewData("result", result);
         return modelAndView;
     }
+
     @RequestMapping(value = "/remove", method = RequestMethod.GET)
     public void removeHeadLine(){
         System.out.println("删除HeadLine");
     }
+
     public Result<Boolean> modifyHeadLine(HttpServletRequest req, HttpServletResponse resp){
         //TODO:参数校验以及请求参数转化
         return headLineService.modifyHeadLine(new HeadLine());
     }
+
     public Result<HeadLine> queryHeadLineById(HttpServletRequest req, HttpServletResponse resp){
         //TODO:参数校验以及请求参数转化
         return headLineService.queryHeadLineById(1);
     }
+
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     @ResponseBody
     public Result<List<HeadLine>>queryHeadLine(){

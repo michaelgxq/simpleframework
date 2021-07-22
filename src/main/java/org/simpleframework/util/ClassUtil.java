@@ -203,12 +203,12 @@ public class ClassUtil {
 
 
     public static void main(String[] args) {
-        //extractPackageClass("com.imooc.entity");
-        File[] files = null;
-        for(File f : files){
-            System.out.printf("haha");
-        }
-        files.getClass().getClassLoader();
+        extractPackageClass("com.imooc.entity");
+//        File[] files = null;
+//        for(File f : files){
+//            System.out.printf("haha");
+//        }
+//        files.getClass().getClassLoader();
 
     }
 }

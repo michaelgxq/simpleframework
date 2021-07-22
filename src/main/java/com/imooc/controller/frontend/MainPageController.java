@@ -18,9 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 public class MainPageController {
     @Autowired(value = "HeadLineShopCategoryCombineServiceImpl")
     private HeadLineShopCategoryCombineService headLineShopCategoryCombineService;
+
     public Result<MainPageInfoDTO>getMainPageInfo(HttpServletRequest req, HttpServletResponse resp){
         return headLineShopCategoryCombineService.getMainPageInfo();
     }
+
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public void throwException(){
         throw new RuntimeException("抛出异常测试");
