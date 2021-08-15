@@ -19,7 +19,7 @@ public class ClassUtil {
     /**
      * 获取指定包下的所有类
      *
-     * @parampackageName包名
+     * @parampackageName 包名
      * @return 该包下所有类的集合
      */
     public static Set<Class<?>> extractPackageClass(String packageName){
