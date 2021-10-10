@@ -25,6 +25,11 @@ public class AlipayInvocationHandler implements InvocationHandler {
      * 我们就是通过调用该方法中的形参 method 的 invoke() 方法实现调用代理类中的方法的（其实就是反射调用）
      * 并且
      * 我们也是在该方法中调用增强方法对被代理方法进行增强
+     * 其实
+     * 无论我们调用代理类中的什么方法（如 此时下面测试类中调用的 sayHello() 方法）
+     * 本质上都是调用这个 invoke() 方法
+     *（具体见 Spring_AOP 中的 “JDK 动态代理实现原理”）
+     *
      * @param proxy 该形参接收的是代理类对象（即通过调用 Proxy 类的 newProxyInstance() 方法返回的对象）
      * @param method 该形参接收的是被代理类中的被代理方法的 Method 类对象
      * @param args 该形参接收的是被代理方法的形参

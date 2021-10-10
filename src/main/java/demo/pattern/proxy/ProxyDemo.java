@@ -22,16 +22,18 @@ public class ProxyDemo {
 
 
         // 创建 ToBPaymentImpl 这个被代理类对象
-//        ToBPayment toBPayment = new ToBPaymentImpl();
-//
-//        // 创建 AlipayInvocationHandler 类对象
-//        InvocationHandler handlerToB = new AlipayInvocationHandler(toBPayment);
-//
-//        // 获取代理类对象
-//        ToBPayment toBProxy = JdkDynamicProxyUtil.newProxyInstance(toBPayment, handlerToB);
-//
-//        // 调用代理类对象的 pay() 方法
-//        toBProxy.pay();
+        ToBPayment toBPayment = new ToBPaymentImpl();
+
+        // 创建 AlipayInvocationHandler 类对象
+        InvocationHandler handlerToB = new AlipayInvocationHandler(toBPayment);
+
+        // 获取代理类对象
+        ToBPayment toBProxy = JdkDynamicProxyUtil.newProxyInstance(toBPayment, handlerToB);
+
+        // 调用代理类对象的 pay() 方法
+        // 这里，本质其实就是调用的我们创建的 AlipayInvocationHandler 类中所实现的 invoke() 方法
+        //（具体见 Spring_AOP 中的 “JDK 动态代理实现原理”）
+        toBProxy.pay();
 
 
         // 创建 CommonPayment 这个被代理类的对象
